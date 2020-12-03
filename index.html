@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<title></title>
+	</head>
+
+	<body>
+		<h1>BMI Calculator with Vanilla Js</h1>
+		<div id="container">
+			<label for="weight-input" id="wlabel">Enter Your Weight(kg):</label
+			><input class="input" type="number" id="weight-input" />
+			<label for="height-input" id="hlabel"
+				>Enter Your Height(inch):</label
+			><input class="input" type="number" id="height-input" />
+			<button id="btn">Calculate</button>
+
+			<div id="bmilabel">
+				<p>
+					Your BMI is :
+					<span id="dynamic__bmi"></span>
+				</p>
+			</div>
+			<div class="bmi_texts" id="bmi_text"></div>
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>
