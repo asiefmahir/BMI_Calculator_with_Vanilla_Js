@@ -67,7 +67,7 @@ function showMessage() {
 	} else if (bmi >= 16 && bmi <= 17) {
 		msg = msg + "Moderate Thin";
 	} else if (bmi > 17 && bmi <= 18.5) {
-		msg = msg + "Mild Thin";
+		msg = msg + "Mid Thin";
 	} else if (bmi > 18.5 && bmi <= 25) {
 		msg = msg + "Normal";
 	} else if (bmi > 25) {
