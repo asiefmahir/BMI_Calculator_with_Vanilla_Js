@@ -81,7 +81,6 @@ function eventHandler() {
 		resetInputs();
 		return;
 	}
-	console.log(heightInput.value);
 	calculateBMI();
 }
 button.addEventListener("click", eventHandler);
