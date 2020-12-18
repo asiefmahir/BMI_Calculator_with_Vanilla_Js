@@ -1,86 +1,77 @@
 const heightInput = document.getElementById("height-input");
 const weightInput = document.getElementById("weight-input");
-const button = document.getElementById("btn");
+const successButton = document.getElementById("btn-success");
+const resetButton = document.getElementById("btn-reset");
 const result = document.getElementById("dynamic__bmi");
 const message = document.getElementById("bmi_text");
-
 // Project Steps
 /**
- * Step1
+ * Step 1
  * Find the functions
  */
-
 /**
- * Step2
+ * Step 2
  * bind functions to EvnetListener
  */
-
 /**
- * Step3
+ * Step 3
  * Find Variables and Data
  */
-
 /**
- * Step4
+ * Step 4
  * Implement calculateBMI function
  */
-
 /**
- * Step5
- * Implement calculateBMI function
- */
-
-/**
- * Step6
+ * Step 5
  * Implement showMessage function
  */
-
 /**
- * Step7
- * Reafctor the code with resetInput Function
+ * Step 6
+ * Implement reset function
  */
-
 /**
- * Step8
+ * Step 7
+ * Implement eventHandler function
+ */
+/**
+ * Step 8
  * Make the Application Bug free
  */
-
-let height, weight, bmi;
-let msg = "You are ";
-function calculateBMI() {
-	height = Number(heightInput.value);
-	weight = Number(weightInput.value);
-	bmi = weight / (height * 0.0254 * (height * 0.0254));
-	result.textContent = bmi.toFixed(2);
-	showMessage();
-	message.textContent = msg;
-	resetInputs();
+function calculateBMI(){
+    let height, weight, bmi;
+    height = Number(heightInput.value);
+    weight = Number(weightInput.value);
+    bmi = weight / (height * 0.0254 * height * 0.0254);
+    result.textContent = bmi.toFixed(2);
+    let msg = showMessage(bmi);
+    message.textContent = msg;
 }
-function resetInputs() {
-	heightInput.value = "";
-	weightInput.value = "";
-	msg = "You are ";
+function showMessage(bmiValue){
+    if(bmiValue < 16){
+        return "You are Severe Thin"
+    } else if(bmiValue >= 16 && bmiValue <= 17){
+        return "You are Moderate Thin"
+    } else if(bmiValue > 17 && bmiValue <= 18.5){
+        return "You are Mid Thin"
+    } else if(bmiValue > 18.5 && bmiValue <= 25){
+        return "You are Normal"
+    } else if(bmiValue > 25){
+        return "You are Overweight"
+    }
 }
-function showMessage() {
-	if (bmi < 16) {
-		msg = msg + "Severe Thin";
-	} else if (bmi >= 16 && bmi <= 17) {
-		msg = msg + "Moderate Thin";
-	} else if (bmi > 17 && bmi <= 18.5) {
-		msg = msg + "Mid Thin";
-	} else if (bmi > 18.5 && bmi <= 25) {
-		msg = msg + "Normal";
-	} else if (bmi > 25) {
-		msg = msg + "Overweight";
-	}
+function reset(){
+    heightInput.value = "";
+    weightInput.value = "";
+    result.textContent = "_________";
+    message.textContent = ""
 }
-
-function eventHandler() {
-	if (!Number(heightInput.value) || !Number(weightInput.value)) {
-		alert("Please Enter Valid Height and Weight");
-		resetInputs();
-		return;
-	}
-	calculateBMI();
+function eventHandler(){
+    if(Number(heightInput.value) && Number(weightInput.value)){
+        calculateBMI();
+    } else {
+        alert("Please provide valid inputs");
+        reset();
+    }
 }
-button.addEventListener("click", eventHandler);
+successButton.addEventListener('click', eventHandler);
+resetButton.addEventListener('click', reset);
